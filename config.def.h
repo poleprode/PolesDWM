@@ -111,10 +111,6 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 //set terminal
 static const char *termcmd[]  = { "alacritty", NULL };
-//volume controls
-//static const char *upvol[]   = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
-//static const char *downvol[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-//static const char *mutevol[] = { "amixer", "-q", "set", "Master", "toggle", NULL };
 //media control
 static const char *toggleaud[] = { "mpc", "toggle", NULL };
 static const char *nextaud[]  = { "mpc", "next", NULL };
@@ -230,7 +226,6 @@ static Key keys[] = {
         { MODKEY|ControlMask|ShiftMask, XK_x,      spawn,          {.v = obl } },	
         { 0|ShiftMask|ControlMask,      XK_Escape, spawn,          {.v = top } },	
         { MODKEY,             		XK_Tab,    spawn,          {.v = skp } },	
-//        { MODKEY,             		XK_n,      spawn,          {.v = vwi } },
         { MODKEY,             		XK_n,      spawn,          SHCMD("alacritty --class vimwiki -e nvim $HOME/vimwiki/index.wiki") },	
 
         { MODKEY|ShiftMask,             XK_a,      spawn,          {.v = ani } },	
