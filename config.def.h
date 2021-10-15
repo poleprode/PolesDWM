@@ -63,18 +63,17 @@ static const Rule rules[] = {
 	{ NULL,       NULL,      "Discord",  1 << 3,       0, 		0,           0,     	0,		0,	-1 },
 	{ NULL,       NULL,      "Telegram", 0,     	   1, 		1,           0,     	0,		0,	-1 },
 	{ NULL,       NULL,      "Steam",    1 << 4,       0, 		0,           0,     	0,		1,	-1 },
-	{ "URxvt",    NULL,      NULL,       0,   	   0, 		0,           1,     	0,		0,	-1 },
 	{ "Alacritty",NULL,      NULL,       0,   	   0, 		0,           1,     	0,		0,	-1 }, 
-	{ NULL,       NULL,      "ncmpcpp",  0,   	   1, 		1,           0,     	0,		0,	-1 },
+	{ NULL,       "ncmpcpp", NULL,	     0,   	   1, 		1,           0,     	0,		0,	-1 },
 	{ NULL,       NULL,      "Flex",     0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "htop",     0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "gotop",    0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "nvim",     0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "alsamixer",0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,"Openbox Logout", 0,   	   1, 		1,           0,     	0,		0,	-1 },
+	{ NULL,       "htop",    NULL,       0,   	   1, 		1,           0,     	0,		0,	-1 },
+	{ NULL,       "gotop",   NULL,       0,   	   1, 		1,           0,     	0,		0,	-1 },
+	{ NULL,       "vimwiki", NULL,       0,   	   1, 		1,           0,     	0,		0,	-1 },
+	{ NULL,       "alsamixer",NULL,      0,   	   1, 		1,           0,     	0,		0,	-1 },
+	{ NULL,       NULL, "Openbox Logout",0,   	   1, 		1,           0,     	0,		0,	-1 },
 	{ "Zathura",  NULL,	 NULL, 	     0,   	   0, 		0,           0,     	1,		0,	-1 },
 	{ "Lxappearance", NULL,  NULL,	     0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,     "sxiv",  	 NULL, 	     0,   	   1, 		1,           0,     	0,		0,	-1 },
+	{ NULL,       "sxiv",  	 NULL, 	     0,   	   1, 		1,           0,     	0,		0,	-1 },
 };
 
 /* layout(s) */
@@ -122,7 +121,6 @@ static const char *nextaud[]  = { "mpc", "next", NULL };
 static const char *prevaud[]  = { "mpc", "prev", NULL };
 //system control functions
 static const char *fn1[] = { "configmenu", NULL };
-static const char *fn2[] = { "sxiv", "-bt", "/home/pole/.config/wallpapers", NULL };
 static const char *fn3[] = { "settingsmenu", NULL };
 //launch apps
 static const char *web[] = { "firefox", NULL };
@@ -132,15 +130,14 @@ static const char *tlg[] = { "telegram-desktop", NULL };
 static const char *scr[] = { "flameshot", "gui", NULL };
 static const char *stm[] = { "steam", NULL };
 static const char *std[] = { "dgl", NULL };
-static const char *ncm[] = { "urxvt", "-e", "ncmpcpp", NULL };
+static const char *ncm[] = { "alacritty", "--class", "ncmpcpp", "-e", "ncmpcpp", NULL };
 static const char *pas[] = { "passmenu", NULL };
 static const char *clp[] = { "clipmenu", NULL };
 static const char *slc[] = { "slock", NULL };
 static const char *obl[] = { "oblogout", NULL };
 static const char *scl[] = { "superclipmenu", NULL };
-static const char *top[] = { "urxvt", "-e", "htop", NULL };
+static const char *top[] = { "alacritty", "--class", "htop", "-e", "htop", NULL };
 static const char *skp[] = { "skippy-xd", NULL };
-static const char *vwi[] = { "urxvt", "-e", "nvim", "/home/pole/vimwiki/index.wiki", NULL };
 static const char *ani[] = { "watchanime", NULL };
 static const char *trs[] = { "transmission-gtk", NULL };
 
@@ -215,7 +212,7 @@ static Key keys[] = {
         { MODKEY,                       XK_comma,  shiftview,      {.i = -1 } },
         
 	{ MODKEY,                       XK_F1,     spawn,          {.v = fn1 } },
-	{ MODKEY,                       XK_F2,     spawn,          {.v = fn2 } },
+	{ MODKEY,                       XK_F2,     spawn,          SHCMD("sxiv -bt $HOME/.config/wallpapers") },
 	{ MODKEY,                       XK_F3,     spawn,          {.v = fn3 } },
 
 	{ MODKEY,                       XK_e,      spawn,          {.v = fm } },
@@ -233,7 +230,9 @@ static Key keys[] = {
         { MODKEY|ControlMask|ShiftMask, XK_x,      spawn,          {.v = obl } },	
         { 0|ShiftMask|ControlMask,      XK_Escape, spawn,          {.v = top } },	
         { MODKEY,             		XK_Tab,    spawn,          {.v = skp } },	
-        { MODKEY,             		XK_n,      spawn,          {.v = vwi } },	
+//        { MODKEY,             		XK_n,      spawn,          {.v = vwi } },
+        { MODKEY,             		XK_n,      spawn,          SHCMD("alacritty --class vimwiki -e nvim $HOME/vimwiki/index.wiki") },	
+
         { MODKEY|ShiftMask,             XK_a,      spawn,          {.v = ani } },	
         { MODKEY,             		XK_t,      spawn,          {.v = trs } },	
 	
