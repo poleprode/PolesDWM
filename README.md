@@ -1,3 +1,4 @@
+<rawtext>
  ██████╗ ██╗    ██╗███╗   ███╗
  ██╔══██╗██║    ██║████╗ ████║
  ██║  ██║██║ █╗ ██║██╔████╔██║
@@ -5,7 +6,10 @@
  ██████╔╝╚███╔███╔╝██║ ╚═╝ ██║
  ╚═════╝  ╚══╝╚══╝ ╚═╝     ╚═╝
           Pole ver
-    
+</rawtext>
+
+---
+
 # DWM - dynamic window manager
 
 DWM is suckless dynamic window manager. It is extremely fast, small and very customisable.
