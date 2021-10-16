@@ -57,23 +57,23 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance   title       tags mask  isfloating  iscentered   isterminal  noswallow isfakefullscreen monitor */
-	{ "Pcmanfm",  NULL,      NULL,       1 << 1,       0, 		0,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "Firefox",  1 << 2,       0, 		0,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "Discord",  1 << 3,       0, 		0,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "Telegram", 0,     	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "Steam",    1 << 4,       0, 		0,           0,     	0,		1,	-1 },
-	{ "Alacritty",NULL,      NULL,       0,   	   0, 		0,           1,     	0,		0,	-1 }, 
-	{ NULL,       "ncmpcpp", NULL,	     0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL,      "Flex",     0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       "htop",    NULL,       0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       "gotop",   NULL,       0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       "vimwiki", NULL,       0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       "alsamixer",NULL,      0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       NULL, "Openbox Logout",0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ "Zathura",  NULL,	 NULL, 	     0,   	   0, 		0,           0,     	1,		0,	-1 },
-	{ "Lxappearance", NULL,  NULL,	     0,   	   1, 		1,           0,     	0,		0,	-1 },
-	{ NULL,       "sxiv",  	 NULL, 	     0,   	   1, 		1,           0,     	0,		0,	-1 },
+	/* class      instance   title       tags mask  isfloating  iscentered  isterminal noswallow  monitor */
+	{ "Pcmanfm",  NULL,      NULL,        1 << 1,       0, 		 0,         0,         0,	 -1 },
+	{ NULL,       NULL,      "Firefox",   1 << 2,       0, 		 0,         0,         0,	 -1 },
+	{ NULL,       NULL,      "Discord",   1 << 3,       0, 		 0,         0,         0,	 -1 },
+	{ NULL,       NULL,      "Telegram",  0,     	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       NULL,      "Steam",     1 << 4,       0, 		 0,         0,         0,	 -1 },
+	{ "Alacritty",NULL,      NULL,        0,   	    0, 		 0,         1,         0,	 -1 }, 
+	{ NULL,       "ncmpcpp", NULL,	      0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       NULL,      "Flex",      0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       "htop",    NULL,        0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       "gotop",   NULL,        0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       "vimwiki", NULL,        0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       "alsamixer",NULL,       0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       NULL, "Openbox Logout", 0,   	    1, 		 1,         0,         0,	 -1 },
+	{ "Zathura",  NULL,	 NULL, 	      0,   	    0, 		 0,         0,         1,	 -1 },
+	{ "Lxappearance", NULL,  NULL,	      0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       "sxiv",  	 NULL, 	      0,   	    1, 		 1,         0,         0,	 -1 },
 };
 
 /* layout(s) */
@@ -226,8 +226,7 @@ static Key keys[] = {
         { MODKEY|ControlMask|ShiftMask, XK_x,      spawn,          {.v = obl } },	
         { 0|ShiftMask|ControlMask,      XK_Escape, spawn,          {.v = top } },	
         { MODKEY,             		XK_Tab,    spawn,          {.v = skp } },	
-        { MODKEY,             		XK_n,      spawn,          SHCMD("alacritty --class vimwiki -e nvim $HOME/vimwiki/index.wiki") },	
-
+        { MODKEY,             		XK_n,      spawn,          SHCMD("alacritty --class vimwiki -e nvim $HOME/vimwiki/index.wiki") },
         { MODKEY|ShiftMask,             XK_a,      spawn,          {.v = ani } },	
         { MODKEY,             		XK_t,      spawn,          {.v = trs } },	
 	
