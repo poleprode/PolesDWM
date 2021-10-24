@@ -74,6 +74,7 @@ static const Rule rules[] = {
 	{ "Zathura",  NULL,	 NULL, 	      0,   	    0, 		 0,         0,         1,	 -1 },
 	{ "Lxappearance", NULL,  NULL,	      0,   	    1, 		 1,         0,         0,	 -1 },
 	{ NULL,       "sxiv",  	 NULL, 	      0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       "youtube music",NULL,   0,   	    1, 		 1,         0,         0,	 -1 },
 };
 
 /* layout(s) */
@@ -136,6 +137,7 @@ static const char *top[] = { "alacritty", "--class", "htop", "-e", "htop", NULL 
 static const char *skp[] = { "skippy-xd", NULL };
 static const char *ani[] = { "watchanime", NULL };
 static const char *trs[] = { "transmission-gtk", NULL };
+static const char *ytm[] = { "youtube-music", NULL };
 
 #include "shiftview.c"
 #include <X11/XF86keysym.h>
@@ -219,6 +221,7 @@ static Key keys[] = {
         { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = stm } },	
         { MODKEY,            		XK_s,      spawn,          {.v = std } },	
         { MODKEY,             		XK_m,      spawn,          {.v = ncm } },	
+        { MODKEY|ShiftMask,             XK_m,      spawn,          {.v = ytm } },	
         { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = pas } },	
         { MODKEY,             		XK_v,      spawn,          {.v = clp } },	
         { MODKEY|ShiftMask,             XK_v,      spawn,          {.v = scl } },	
