@@ -70,6 +70,7 @@ static const Rule rules[] = {
 	{ NULL,       "gotop",   NULL,        0,   	    1, 		 1,         0,         0,	 -1 },
 	{ NULL,       "vimwiki", NULL,        0,   	    1, 		 1,         0,         0,	 -1 },
 	{ NULL,       "alsamixer",NULL,       0,   	    1, 		 1,         0,         0,	 -1 },
+	{ NULL,       "cal",NULL,             0,   	    1, 		 1,         0,         0,	 -1 },
 	{ NULL,       NULL, "Openbox Logout", 0,   	    1, 		 1,         0,         0,	 -1 },
 	{ "Zathura",  NULL,	 NULL, 	      0,   	    0, 		 0,         0,         1,	 -1 },
 	{ "Lxappearance", NULL,  NULL,	      0,   	    1, 		 1,         0,         0,	 -1 },
@@ -139,6 +140,7 @@ static const char *skp[] = { "skippy-xd", NULL };
 static const char *ani[] = { "watchanime", NULL };
 static const char *trs[] = { "transmission-gtk", NULL };
 static const char *ytm[] = { "youtube-music", NULL };
+static const char *lut[] = { "lutris", NULL };
 
 #include "shiftview.c"
 #include <X11/XF86keysym.h>
@@ -233,6 +235,7 @@ static Key keys[] = {
         { MODKEY,             		XK_n,      spawn,          SHCMD("alacritty --class vimwiki -e nvim $HOME/vimwiki/index.wiki") },
         { MODKEY|ShiftMask,             XK_a,      spawn,          {.v = ani } },	
         { MODKEY,             		XK_t,      spawn,          {.v = trs } },	
+        { MODKEY|ControlMask,           XK_s,      spawn,          {.v = lut } },	
 	
 	{ 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer -q set Master 5%+ unmute ; kill -38 $(pidof dwmblocks)") },
         { 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer -q set Master 5%- unmute ; kill -38 $(pidof dwmblocks)") },
